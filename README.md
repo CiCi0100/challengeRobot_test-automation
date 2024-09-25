@@ -43,16 +43,18 @@ O objetivo é garantir que o sistema possa lidar com uma variedade de cenários 
 
 ## Pré-requisitos
 
-Certifique-se de ter o Python e Chromedriver instalado na sua máquina. Você pode verificar a versão do Python usando o comando:
+Certifique-se de ter o Python, Java e Chromedriver instalado na sua máquina. Você pode verificar a versão do Python e Java usando o comando:
 
 ```bash
 python --version
+java --version
 
 ```
-## Caso não tenha na sua máquina o python ou/e chromedriver, acesse o link logo abaixo do tutorial para instalar:
+## Caso não tenha na sua máquina o python, java ou/e chromedriver, acesse o link logo abaixo do tutorial para instalar:
 
 - [python](https://youtu.be/0pG4NrucQR4?si=0u5DeS3FtRhN-326)
 - [chromedriver](https://youtu.be/Ot10qzrb13c?si=kC7u2FMFcSlB1G4c)
+- [java](https://www.youtube.com/watch?v=laC0fiI-IOM)
 
 ```bash
 
