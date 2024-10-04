@@ -76,10 +76,13 @@ cd challengeRobot_test-automation
 ## Estrutura do Projeto 
 
 <br> challengeRobot_test-automation/ 
-<br> | |-- files/
-<br> | | |-- Cliente-00-00-0000-00-00-00.txt
-<br> | |-- libraries/
+<br> | |-- framework/
 <br> | | |-- functionals.robot
+<br> | | |-- files
+<br> | | | |-- client-00-00-0000-00-00-00.txt
+<br> | | |-- library
+<br> | | | |-- __pycache__
+<br> | | | |-- generator.py
 <br> |-- steps/
 <br> | | | -- test_case_steps.robot
 <br> | |-- tests/
@@ -88,10 +91,11 @@ cd challengeRobot_test-automation
 <br> |-- requirements.txt
 
 
-<br> - files: Contém arquivos com dados de cada cliente criado.
-<br> - libraries: Inclui arquivos de recursos que auxiliam os testes.
+<br> - framework: Inclui arquivos de recursos que auxiliam os testes.
 <br> - functionals.robot: Métodos auxiliares para os testes, incluindo criação de clientes e armazenamento de dados.
-<br> - PageObjects: Variáveis e elementos que facilitam os testes.
+<br> - files: Contém arquivos com dados de cada cliente criado.
+<br> - library: Contém arquivo com métodos auxiliares para a pasta functionals.robot, desenvolvidos em python.
+<br> - page_objects: Variáveis e elementos que facilitam os testes.
 <br> - results: Relatórios gerados pelo Robot Framework.
 <br> - steps: Passos e definições dos testes.
 <br> - tests: Contém suítes de testes:

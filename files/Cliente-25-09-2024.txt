@@ -1,3 +1,0 @@
-name=Lawrence Santos, email=starktimothy@example.org, lastname=Lynch, password=(32LY5ywmP, day=19, month=03, year=2000, address=588 Paula Villages Suite 386
-South Natalieberg, NY 63592, company=daryl18, city=New Michael, cep=24506, state=Virginia, phoneNumber=3635931061, adress=6984 Dana Mountain
-Knappmouth, MA 82273, password1=%4fN5bon&7

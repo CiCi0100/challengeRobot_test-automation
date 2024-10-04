@@ -1,6 +1,6 @@
 *** Settings ***
 Library            SeleniumLibrary
-Resource           ../libraries/functionals.robot
+Resource           ../framework/functionals.robot
 Resource           ../page_objects/home_page.robot
 Resource           ../page_objects/contact_us.robot
 Resource           ../page_objects/create_account.robot
@@ -10,20 +10,7 @@ Resource           ../page_objects/search_page.robot
 Resource           ../page_objects/sign_in_page.robot
 
 
-*** Variables ***
-${HOME_PAGE}      http://www.automationpractice.pl/index.php
-
-
 *** Keywords ***
-Abrir Browser
-    Open Browser    browser=chrome    options=add_experimental_option("detach", True)
-    Go To                             ${HOME_PAGE}
-    Maximize Browser Window
-
-Fechar Browser
-    Capture Page Screenshot
-    Close Browser
-
 Given that I'm on the home page, and I'm not logged in
     Go To                             ${HOME_PAGE}
     Maximize Browser Window
@@ -35,18 +22,18 @@ And I am redirected to the login and registration page
     Wait Until Element Is Visible    ${PageTitle}
 
 And I enter your data correctly
-    &{USER}                           Create Client                  
-    Set Global Variable               &{USER}
-    SeleniumLibrary.Input Text        ${InputCreate}                            ${USER.email}
+    &{DATA}                           Create Client                  
+    Set Global Variable               &{DATA}
+    SeleniumLibrary.Input Text        ${InputCreate}                            ${DATA.email}
     Click Element                     ${CreateAccount}
     Wait Until Element Is Visible     ${h3Your personalInformation}
     Click Element                     ${gender}
-    SeleniumLibrary.Input Text        ${inputName}                             ${USER.name}
-    SeleniumLibrary.Input Text        ${inputLastName}                         ${USER.lastname}
-    SeleniumLibrary.Input Text        ${inputPassword}                         ${USER.password}
-    Select From List By Index         ${SelectDay}                              ${USER.day}
-    Select From List By Index         ${SelectMonths}                           ${USER.month}
-    Select From List By Value         ${SelectYears}                            ${USER.year}
+    SeleniumLibrary.Input Text        ${inputName}                             ${DATA.name}
+    SeleniumLibrary.Input Text        ${inputLastName}                         ${DATA.lastname}
+    SeleniumLibrary.Input Text        ${inputPassword}                         ${DATA.password}
+    Select From List By Index         ${SelectDay}                              ${DATA.day}
+    Select From List By Index         ${SelectMonths}                           ${DATA.month}
+    Select From List By Value         ${SelectYears}                            ${DATA.year}
 
  Then When you click on the finish button, the registration must be completed successfully.
      Click Element                    ${ButtonRegister}
@@ -54,9 +41,13 @@ And I enter your data correctly
      Click Element    ${SignOut}
 
 And I enter your email and password correctly
-    SeleniumLibrary.Input Text        ${InputEmailSignIn}                        ${USER.email}
-    SeleniumLibrary.Input Text        ${InputPasswordSignIn}                     ${USER.password}
-
+    &{USER}      Uses Mass of Data    Client-${data}.txt
+    Set Global Variable                     &{USER}
+    ${usuario}    Set Variable              ${USER.email}
+    ${senha}      Set Variable              ${USER.password}
+    Set Global Variable                     ${usuario}
+    Set Global Variable                     ${senha}  
+    Login in    ${usuario}    ${senha}
 Then When you click on the “Sign In” button, you must log in successfully.
     Click Element                    ${ButtonSignIn}
 

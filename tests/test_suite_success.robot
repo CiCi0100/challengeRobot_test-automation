@@ -14,6 +14,7 @@ CT001 - Successfully register user
     Then When you click on the finish button, the registration must be completed successfully.
 
 CT002 - Login successfully
+# robot -t "CT002 - Login successfully" -d results "tests/test_suite_success.robot"
     Given that I'm on the home page, and I'm not logged in
     When I click on “Sign In”
     And I am redirected to the login and registration page
